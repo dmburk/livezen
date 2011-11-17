@@ -1,10 +1,11 @@
 class ListsController < ApplicationController
+  before_filter :find_list, :only => [:show, :edit, :update, :destroy]
+
   def index
   	@lists = List.all
   end
 
   def show
-  	@list = List.find(params[:id])
   end
 
   def new
@@ -12,7 +13,6 @@ class ListsController < ApplicationController
   end
 
   def edit
-  	@list = List.find(params[:id])
   end
 
   def create
@@ -26,7 +26,6 @@ class ListsController < ApplicationController
   end
 
   def update
-  	@list = List.find(params[:id])
   	if @list.update_attributes(params[:list])
   		flash[:notice] = "List updated"
   		redirect_to list_url(@list)
@@ -36,7 +35,6 @@ class ListsController < ApplicationController
   end
 
   def destroy
-  	@list = List.find(params[:id])
   	# if @list.destroyed
   		redirect_to lists_url
   		flash[:notice] = "List deleted"
@@ -44,5 +42,9 @@ class ListsController < ApplicationController
   	# 	render 'show'
   	# 	flash[:notice] = "Delete list failed"
   	# end
+  end
+
+  def find_list
+  	@list = List.find(params[:id])
   end
 end
