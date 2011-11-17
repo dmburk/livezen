@@ -27,7 +27,7 @@ group :test, :development do
 	gem 'rb-inotify'		# Gem used to Linux notifications
 	gem 'libnotify'			# Needed for Linux notifications
 	gem 'launchy'
-	gem 'factory_girl_rails'
+	gem 'factory_girl_rails', '~> 1.2'
 end
 
 # To use ActiveModel has_secure_password
