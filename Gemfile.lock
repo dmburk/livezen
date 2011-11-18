@@ -115,8 +115,6 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.11)
       json (~> 1.4)
-    remarkable (3.1.13)
-      rspec (>= 1.2.0)
     rspec (2.7.0)
       rspec-core (~> 2.7.0)
       rspec-expectations (~> 2.7.0)
@@ -143,6 +141,7 @@ GEM
       ffi (~> 1.0.9)
       json_pure
       rubyzip
+    shoulda-matchers (1.0.0)
     sprockets (2.0.3)
       hike (~> 1.2)
       rack (~> 1.0)
@@ -175,8 +174,8 @@ DEPENDENCIES
   libnotify
   rails (= 3.1.1)
   rb-inotify
-  remarkable
   rspec-rails
   sass-rails (~> 3.1.4)
+  shoulda-matchers
   sqlite3
   uglifier (>= 1.0.3)

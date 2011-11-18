@@ -28,8 +28,10 @@ group :test, :development do
 	gem 'libnotify'			# Needed for Linux notifications
 	gem 'launchy'
 	gem 'factory_girl_rails', '~> 1.2'
-	gem 'remarkable'
+	#gem 'remarkable_rails' Makes testing easier. Error on running spec so I'm commenting it out atm.
+	gem 'shoulda-matchers'
 end
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

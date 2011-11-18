@@ -1,8 +1,8 @@
 Livezen::Application.routes.draw do
   get "users/index"
 
-  resources :lists
   resources :users
+  resources :lists
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
