@@ -1,3 +1,4 @@
 class User < ActiveRecord::Base
-	has_and_belongs_to_many :lists
+	has_many :list_shares
+	has_many :lists, :through => :list_shares
 end

@@ -1,5 +1,6 @@
 class List < ActiveRecord::Base
-	has_and_belongs_to_many :users
+	has_many :list_shares
+	has_many :users, :through => :list_shares
 
 	validates :name, :presence => true
 end

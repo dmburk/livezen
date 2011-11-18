@@ -11,17 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111118184122) do
+ActiveRecord::Schema.define(:version => 20111118205042) do
+
+  create_table "list_shares", :force => true do |t|
+    t.integer  "list_id"
+    t.integer  "user_id"
+    t.boolean  "write_access"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "lists", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
-  end
-
-  create_table "lists_users", :id => false, :force => true do |t|
-    t.integer "list_id"
-    t.integer "user_id"
   end
 
   create_table "users", :force => true do |t|

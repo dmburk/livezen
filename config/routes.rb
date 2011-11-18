@@ -1,4 +1,6 @@
 Livezen::Application.routes.draw do
+  get "list_shares/index"
+
   get "users/index"
 
   resources :users
