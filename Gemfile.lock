@@ -115,6 +115,8 @@ GEM
       ffi (>= 0.5.0)
     rdoc (3.11)
       json (~> 1.4)
+    remarkable (3.1.13)
+      rspec (>= 1.2.0)
     rspec (2.7.0)
       rspec-core (~> 2.7.0)
       rspec-expectations (~> 2.7.0)
@@ -173,6 +175,7 @@ DEPENDENCIES
   libnotify
   rails (= 3.1.1)
   rb-inotify
+  remarkable
   rspec-rails
   sass-rails (~> 3.1.4)
   sqlite3
