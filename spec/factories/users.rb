@@ -2,10 +2,9 @@
 
 FactoryGirl.define do
   factory :user do
-    email "MyString"
-    hashed_password "MyString"
-    salt "MyString"
-    first_name "MyString"
-    last_name "MyString"
+    email "frodo@middle_earth.net"
+    password "thering"
+    first_name "Frodo"
+    last_name "Baggins"
   end
 end
