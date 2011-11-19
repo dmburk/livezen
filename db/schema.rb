@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111118205042) do
+ActiveRecord::Schema.define(:version => 20111119043623) do
 
   create_table "list_shares", :force => true do |t|
     t.integer  "list_id"
@@ -29,7 +29,7 @@ ActiveRecord::Schema.define(:version => 20111118205042) do
 
   create_table "users", :force => true do |t|
     t.string   "email"
-    t.string   "hashed_password"
+    t.string   "password_digest"
     t.string   "salt"
     t.string   "first_name"
     t.string   "last_name"
