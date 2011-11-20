@@ -20,8 +20,6 @@ describe SessionsController do
 				@user = Factory(:user)
 				#puts @user.to_yaml
 				#puts @user.intance_method_names
-				#User.stub!(:find_by_email).and_return(@user)
-				#user.authenticate.stub!(:password).and_return(@user)
 				@params = { :email => "frodo@middle_earth.net", 
 										:password => "thering" }
 			end

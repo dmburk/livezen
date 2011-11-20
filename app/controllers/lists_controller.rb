@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_filter :find_list, :only => [:show, :edit, :update, :destroy]
+  before_filter :find_list, :only => [ :show, :edit, :update, :destroy ]
 
   def index
   	@lists = List.all
@@ -18,8 +18,7 @@ class ListsController < ApplicationController
   def create
   	@list = List.new(params[:list])
   	if @list.save
-  		flash[:notice] = "List added"
-  		redirect_to lists_path
+  		redirect_to lists_path, :notice => "List added"
   	else
   		render 'new'
   	end
@@ -27,8 +26,7 @@ class ListsController < ApplicationController
 
   def update
   	if @list.update_attributes(params[:list])
-  		flash[:notice] = "List updated"
-  		redirect_to list_url(@list)
+  		redirect_to list_url(@list), :notice => "List updated"
   	else
   		render 'edit'
   	end
@@ -36,8 +34,7 @@ class ListsController < ApplicationController
 
   def destroy
   	# if @list.destroyed
-  		redirect_to lists_url
-  		flash[:notice] = "List deleted"
+  		redirect_to lists_url, :notice => "List deleted"
   	# else
   	# 	render 'show'
   	# 	flash[:notice] = "Delete list failed"
