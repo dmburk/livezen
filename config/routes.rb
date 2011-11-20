@@ -1,10 +1,14 @@
 Livezen::Application.routes.draw do
-  get "list_shares/index"
-
-  get "users/index"
+  root :to => "users#show"
 
   resources :users
   resources :lists
+
+  get "sessions/new"
+  get "sessions/create"
+  get "sessions/destroy"
+  get "list_shares/index"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
