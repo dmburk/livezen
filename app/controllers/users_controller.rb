@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  force_ssl
+  #force_ssl
   before_filter :find_user, :only => [ :show, :edit, :update ]
 
   def index
