@@ -1,5 +1,5 @@
 Livezen::Application.routes.draw do
-  root :to => "sessions#new"
+  root :to => "users#show"
 
   resources :users, :lists
   resources :sessions, :only => [ :new, :create, :destroy ]
