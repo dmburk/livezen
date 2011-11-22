@@ -10,6 +10,12 @@
 					%li= message
 
 	.field
+		= f.label				:first_name
+		= f.text_field	:first_name
+	.field
+		= f.label				:last_name
+		= f.text_field	:last_name
+	.field
 		= f.label 		 :email
 		= f.text_field :email
 	.field
@@ -19,4 +25,4 @@
 		= f.label 				 :password_confirmation
 		= f.password_field :password_confirmation
 	.actions
-		= f.submit
+		= f.submit "Sign up"

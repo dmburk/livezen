@@ -19,7 +19,7 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(params[:user])
   	if @user.save
-  		redirect_to @user, :notice => "Sign up successful!"
+  		redirect_to root_url, :notice => "Signup successful. Log in to access your account."
   	else
   		render 'new'
   	end
@@ -34,6 +34,6 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.find(params[:id])
+    @user = User.find(current_user.id)
   end
 end

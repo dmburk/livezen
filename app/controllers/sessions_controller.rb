@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
 	def create
 		# Railscast example did not need [:session][:email/password]
 		# Tests fail without it
-		user = User.find_by_email(params[:session][:email])
-		if user && user.authenticate(params[:session][:password])
+		user = User.find_by_email(params[:email])
+		if user && user.authenticate(params[:password])
 			session[:user_id] = user.id
 			redirect_to user_url(current_user.id), :notice => "Logged in"
 		else

@@ -1,10 +1,13 @@
 Livezen::Application.routes.draw do
-  root :to => "users#show"
+  root :to => "sessions#new"
 
   resources :users, :lists
   resources :sessions, :only => [ :new, :create, :destroy ]
   get "sessions/destroy"
 
+  match "signup" => "users#new"
+  match "login" => "sessions#new"
+  match "logout" => "sessions#delete"
   get "list_shares/index"
 
 
