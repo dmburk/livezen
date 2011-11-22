@@ -3,13 +3,14 @@ Livezen::Application.routes.draw do
 
   resources :users, :lists
   resources :sessions, :only => [ :new, :create, :destroy ]
-  get "sessions/destroy"
 
   match "signup" => "users#new"
   match "login" => "sessions#new"
   match "logout" => "sessions#destroy"
-  get "list_shares/index"
+  match "profile" => "users#show"
 
+  get "list_shares/index"
+  get "sessions/destroy"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

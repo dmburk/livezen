@@ -1,6 +1,5 @@
-.login
-  %h1 Login
-
+%h1 Login
+.form-stacked
   = form_tag sessions_path do
     .field
       = label_tag :email
@@ -11,6 +10,5 @@
     .actions
       = submit_tag "Login"
 
-  .pull-right
     Don't have an account?
     = link_to "Sign up!", signup_path

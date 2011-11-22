@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
 			session[:user_id] = user.id
 			redirect_to user_url(current_user.id), :notice => "Logged in"
 		else
-			flash[:notice] =  "Login failed"
+			flash[:error] =  "Login failed"
 			render 'new'
 		end
 	end

@@ -12,15 +12,17 @@
         .container
           = link_to "LiveZen", root_path, :class => "brand"
           %ul.nav
-            %li.active Test
+            %li= link_to "Listable", lists_path
+            // Can use li.active for the active app.
           
           %p.pull-right
             - if current_user
-              = "#{current_user.email} - "
+              = link_to current_user.email, profile_path
+              = " - "
               = link_to "Logout", logout_path
             - else
               = link_to "Login", login_path
 
     .content
-      = render 'layouts/notice'
+      =render :partial => "shared/flash_messages", :locals => {:flash => flash}
       = yield

@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
   #force_ssl
+  before_filter :redirect_user_if_not_logged_in, :except => :new
   before_filter :find_user, :only => [ :show, :edit, :update ]
 
   def index
@@ -35,5 +36,9 @@ class UsersController < ApplicationController
 
   def find_user
     @user = User.find(current_user.id)
+  end
+
+  def redirect_user_if_not_logged_in
+    redirect_to(login_url) if !current_user
   end
 end
