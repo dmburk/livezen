@@ -25,12 +25,15 @@ group :test, :development do
 	gem 'capybara'			# Used for integration tests. Runs as user in web browser.
 	gem 'guard'					# Auto run tests when changes are made '$guard init'
 	gem 'guard-rspec'		# Dependancy to use guard with rspec '$guard init rspec'
+	gem 'guard-spork'
+	gem "spork", ">0.9.0.rc"
 	gem 'rb-inotify'		# Gem used to Linux notifications
 	gem 'libnotify'			# Needed for Linux notifications
 	gem 'launchy'
 	gem 'factory_girl_rails', '~> 1.2'
 	#gem 'remarkable_rails' Makes testing easier. Error on running spec so I'm commenting it out atm.
 	gem 'shoulda-matchers'
+	gem 'ruby-debug19'
 end
 
 
