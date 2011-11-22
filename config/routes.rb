@@ -7,7 +7,7 @@ Livezen::Application.routes.draw do
 
   match "signup" => "users#new"
   match "login" => "sessions#new"
-  match "logout" => "sessions#delete"
+  match "logout" => "sessions#destroy"
   get "list_shares/index"
 
 
