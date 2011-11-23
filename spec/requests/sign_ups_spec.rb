@@ -12,8 +12,7 @@ describe "SignUps" do
 		fill_in "Password", 							:with => user.password
 		fill_in "Password confirmation", 	:with => user.password
 		click_button "Sign up"
-		current_path.should eq(root_path)
-		page.should have_content("Signup successful. Log in to access your account.")
+		current_path.should eq(login_path)
 	end
 
 	it "should sign in a valid user" do
