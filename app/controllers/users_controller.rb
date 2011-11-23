@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   #force_ssl
-  before_filter :redirect_user_if_not_logged_in, :except => :new
+  before_filter :redirect_user_if_not_logged_in, :except => [ :new, :create ]
   before_filter :find_user, :only => [ :show, :edit, :update ]
 
   def index
@@ -20,7 +20,8 @@ class UsersController < ApplicationController
   def create
   	@user = User.new(params[:user])
   	if @user.save
-  		redirect_to root_url, :success => "Signup successful. Log in to access your account."
+      flash[:success] = "Signup successful. Log in to access your account."
+  		redirect_to login_url
   	else
   		render 'new'
   	end

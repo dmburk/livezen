@@ -7,6 +7,7 @@ class ListsController < ApplicationController
 
   def show
     @task = Task.new
+    #@tasks = Task.all(params[:id])
   end
 
   def new

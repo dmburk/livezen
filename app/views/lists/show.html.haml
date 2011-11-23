@@ -1,1 +1,23 @@
 %h2= @list.name
+
+/- @list.tasks.each do |task|
+/  = link_to task.name, task
+
+= link_to new_task_path
+%fieldset
+  %legend New task
+  = form_for @task do |f|
+
+    - if @task.errors.any?
+      .error_messages
+        %h2 Form is invalid
+        %ul
+          - for message in @task.errors.full_messages
+            %li= message
+
+    .field
+      = f.label      :name
+      = f.text_field :name
+      = f.hidden_field :list_id, :value => @list.id
+    .actions
+      = f.submit :class => "primary"

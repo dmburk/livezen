@@ -1,7 +1,7 @@
 Livezen::Application.routes.draw do
   root :to => "users#show"
 
-  resources :users, :lists
+  resources :users, :lists, :tasks
   resources :sessions, :only => [ :new, :create, :destroy ]
 
   match "signup" => "users#new"
