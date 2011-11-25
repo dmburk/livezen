@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe "SignUps" do
+describe "Users" do
 	let(:user) { Factory(:user) }
 
 	it "creates a new user" do
@@ -15,7 +15,7 @@ describe "SignUps" do
 		current_path.should eq(login_path)
 	end
 
-	it "should sign in a valid user" do
+	it "signs in a valid user" do
 		visit root_path
 		fill_in "Email", :with => user.email
 		fill_in "Password", :with => user.password
