@@ -47,14 +47,3 @@ Spork.each_run do
   # This code will be run each time you run your specs.
   FactoryGirl.reload
 end
-
-
-# def login_user do
-#   @user = Factory(:user)
-#   @params = { :email => @user.email, :password => @user.password }
-#   post :session, :create => @params
-# end
-
-
-
-

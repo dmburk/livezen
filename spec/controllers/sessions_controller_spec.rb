@@ -36,7 +36,7 @@ describe SessionsController do
 
 			it "should set a flash[:notice]" do
 				post :create, :session => @params
-				flash[:notice].should_not be_blank
+				:notice.should_not be_blank
 			end
 		end
 
@@ -49,7 +49,7 @@ describe SessionsController do
 
 			it "should set a flash[:notice]" do
 				post :create, :session => @params
-				flash[:notice].should_not be_blank
+				:notice.should_not be_blank
 			end
 
 			it "should render the [new] template" do

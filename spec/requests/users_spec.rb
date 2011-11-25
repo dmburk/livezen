@@ -2,6 +2,7 @@ require 'spec_helper'
 
 describe "Users" do
 	let(:user) { Factory(:user) }
+	
 	before(:each) do
 		visit root_path
 	end
@@ -34,6 +35,9 @@ describe "Users" do
 	end
 
 	it "logs out a user" do
+		fill_in "Email", :with => user.email
+		fill_in "Password", :with => user.password
+		click_button "Login"
 		click_link "Logout"
 		current_path.should eq(login_path)
 		page.should have_content("Login")

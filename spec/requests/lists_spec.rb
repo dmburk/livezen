@@ -11,6 +11,6 @@ describe "Lists" do
     click_link "New list"
     fill_in "Name", :with => "Groceries"
     click_button "Create"
-    current_path.should eq(list_path(@list))
+    page.should have_content "Groceries"
   end
 end
