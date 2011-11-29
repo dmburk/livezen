@@ -34,6 +34,7 @@ group :test, :development do
 	#gem 'remarkable_rails' Makes testing easier. Error on running spec so I'm commenting it out atm.
 	gem 'shoulda-matchers'
 	gem 'ruby-debug19'
+	gem 'awesome_print'
 end
 
 

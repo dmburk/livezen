@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111123030113) do
+ActiveRecord::Schema.define(:version => 20111129002809) do
 
   create_table "list_shares", :force => true do |t|
     t.integer  "list_id"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(:version => 20111123030113) do
     t.boolean  "write_access"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "owner"
   end
 
   create_table "lists", :force => true do |t|

@@ -1,8 +1,10 @@
 class ListsController < ApplicationController
   before_filter :find_list, :only => [ :show, :edit, :update, :destroy ]
+  after_filter :make_owner, :only =>  :create
 
   def index
-  	@lists = List.all
+    @user = User.find(current_user.id)
+    @lists = @user.lists
   end
 
   def show
@@ -19,6 +21,8 @@ class ListsController < ApplicationController
 
   def create
   	@list = List.new(params[:list])
+    @user = User.find(current_user.id)
+    @list.users << @user
   	if @list.save
   		redirect_to lists_path, :notice => "List added"
   	else
@@ -45,5 +49,16 @@ class ListsController < ApplicationController
 
   def find_list
   	@list = List.find(params[:id])
+  end
+
+  private
+
+
+  def make_owner
+    if (ls = ListShare.where(:list_id => @list.id, :user_id => @user.id)).first
+      debugger
+      ls.owner = true
+      ls.save!
+    end
   end
 end

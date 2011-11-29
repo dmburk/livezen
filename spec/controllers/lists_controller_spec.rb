@@ -1,15 +1,29 @@
 require 'spec_helper'
 
 describe ListsController do
-
+  # Index
 	# GET /lists
 	#-----------------------------------------------------------
   describe "responding to GET index" do
     it "exposes all lists as @lists and render the [index] template" do
     	@lists = [Factory(:list)]
     	get :index
-    	assigns(:lists).should == @lists
+    	assigns[:lists].should == @lists
       response.should render_template('lists/index')
+    end
+
+    it "should show all lists the user is authorized on" do
+      current_user = Factory(:user)
+      @lists.list_shares.build = [Factory(:list)]
+      get :index
+      assigns[:lists].should eq(@lists)
+    end
+
+    it "should not show lists the user is not authorized for" do
+      @lists = [Factory.create(:list, :id => "2", :name => "Sauron")]
+      @list_shares = [Factory.create(:list_shares)]
+      get :index
+      assigns[:lists].should_not eq(@lists)
     end
   end
 
