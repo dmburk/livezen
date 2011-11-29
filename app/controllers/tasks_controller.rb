@@ -1,6 +1,9 @@
 class TasksController < ApplicationController
+  def new
+    @task = Task.new
+  end
+
   def create
-    debugger
     @task = Task.new(params[:task])
     if @task.save
       flash[:notice] = "Task added"
@@ -9,5 +12,29 @@ class TasksController < ApplicationController
       flash[:error] = "Task did not save."
       render 'lists/show/#{@task.list_id}'
     end
+  end
+
+  def show
+    @task = Task.find(params[:id])
+  end
+
+  def update
+    @task = Task.find(params[:id])
+    if @task.update_attributes
+      flash[:success] = "Task updated"
+      redirect_to @task
+    else
+      render 'edit'
+    end
+  end
+
+  def edit
+    @task = Task.find(params[:id])
+  end
+
+  def complete
+    @task = Task.find(params[:id])
+    @task.update_attributes("status" => "Completed")
+    redirect_to @task
   end
 end

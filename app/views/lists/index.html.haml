@@ -1,6 +1,8 @@
 %h1 Lists
 
-- @lists.each do |list|
-  = link_to list.name, list
-%p
-= link_to "New list", new_list_path, :class => "primary"
+.lists
+  - @lists.each do |list|
+    = link_to list.name, list
+
+.actions
+  = link_to "New list", new_list_path, :class => "btn primary"

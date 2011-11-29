@@ -1,0 +1,19 @@
+%h2= @task.name
+
+= form_for @task do |f|
+
+  - if @task.errors.any?
+    .error_messages
+      %h2 Form is invalid
+      %ul
+        - for message in @task.errors.full_messages
+          %li= message
+
+  .field
+    = f.label      :name
+    = f.text_field :name
+  .field
+    = f.label :status
+    = f.select :status, [["Pending", "Pending"], ["In progress", "In Progress"], ["Completed", "Completed"]]
+  .actions
+    = f.submit :class => "btn primary"

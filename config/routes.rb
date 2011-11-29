@@ -8,7 +8,9 @@ Livezen::Application.routes.draw do
   match "login" => "sessions#new"
   match "logout" => "sessions#destroy"
   match "profile" => "users#show"
+  match "tasks/:id/complete" => "tasks#complete", :as => "complete"
 
+  #get "tasks/complete"
   get "list_shares/index"
   get "sessions/destroy"
 

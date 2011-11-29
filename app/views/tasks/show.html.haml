@@ -1,0 +1,5 @@
+%h1= "#{@task.name} - (#{@task.status})"
+
+= link_to "Complete", complete_path(@task), :class => "btn primary"
+= link_to "Edit", edit_task_path(@task), :class => "btn"
+= link_to "Delete", @task, :method => :delete, :confirm => "Delete #{@task.name}?", :class => "btn danger"
