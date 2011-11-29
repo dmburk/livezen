@@ -39,12 +39,8 @@ class ListsController < ApplicationController
   end
 
   def destroy
-  	# if @list.destroyed
-  		redirect_to lists_url, :notice => "List deleted"
-  	# else
-  	# 	render 'show'
-  	# 	flash[:notice] = "Delete list failed"
-  	# end
+    @list.destroy
+		redirect_to lists_url, :notice => "List deleted"
   end
 
   def find_list
