@@ -53,10 +53,9 @@ class ListsController < ApplicationController
 
   private
 
-
   def make_owner
-    if (ls = ListShare.where(:list_id => @list.id, :user_id => @user.id)).first
-      debugger
+    if (shares = ListShare.where(:list_id => @list.id, :user_id => @user.id))
+      ls = shares.first
       ls.owner = true
       ls.save!
     end
