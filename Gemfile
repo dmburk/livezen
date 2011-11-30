@@ -10,6 +10,7 @@ gem 'haml-rails'
 gem 'jquery-rails'
 gem 'bcrypt-ruby'
 gem 'less-rails-bootstrap'
+gem 'pg'
 
 # Gems used only for assets and not required
 # in production environments by default.
