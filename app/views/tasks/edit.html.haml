@@ -14,6 +14,6 @@
     = f.text_field :name
   .field
     = f.label :status
-    = f.select :status, [["Pending", "Pending"], ["In progress", "In Progress"], ["Completed", "Completed"]]
+    = f.select :status, [["Active", 1], ["In progress", 2], ["Completed", 3]]
   .actions
     = f.submit :class => "btn primary"

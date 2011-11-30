@@ -9,10 +9,12 @@ Livezen::Application.routes.draw do
   match "logout" => "sessions#destroy"
   match "profile" => "users#show"
   match "tasks/:id/complete" => "tasks#complete", :as => "complete"
+  match "lists/:id/:status" => "lists#show"
 
   #get "tasks/complete"
   get "list_shares/index"
   get "sessions/destroy"
+
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

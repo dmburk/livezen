@@ -5,6 +5,8 @@ class TasksController < ApplicationController
 
   def create
     @task = Task.new(params[:task])
+    @task.status = 1
+
     if @task.save
       flash[:notice] = "Task added"
       redirect_to @task.list
@@ -34,7 +36,7 @@ class TasksController < ApplicationController
 
   def complete
     @task = Task.find(params[:id])
-    @task.update_attributes("status" => "Completed")
+    @task.update_attributes("status" => 3)
     redirect_to @task
   end
 end

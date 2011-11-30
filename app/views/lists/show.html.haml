@@ -2,10 +2,24 @@
 
 = link_to "Edit", edit_list_path(@list), :class => "btn"
 = link_to "Delete", @list, :method => :delete, :confirm => "Delete #{@list.name}?", :class => "btn danger"
+%p
+%p
+
+
+.status
+  = link_to 'Active', list_path(@list, :status => 1)
+  = " | "
+  = link_to 'Completed', list_path(@list, :status => 3)
+  = " | "
+  = link_to "All", list_path(@list, :status => "all")
+
+
+
 
 .tasks
-  - @list.tasks.each do |task|
+  - @tasks.each do |task|
     = link_to task.name, task
+    = status_converter(task.status)
     %br
 
 %fieldset

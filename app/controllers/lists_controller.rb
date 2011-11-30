@@ -9,7 +9,14 @@ class ListsController < ApplicationController
 
   def show
     @task = Task.new
-    #@tasks = Task.all(params[:id])
+
+    if params[:status].nil?
+      @tasks = @list.tasks.where(:status => 1)
+    elsif params[:status] == "all"
+      @tasks = @list.tasks
+    else
+      @tasks = @list.tasks.where( :status => params[:status] )
+    end
   end
 
   def new
