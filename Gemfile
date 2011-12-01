@@ -10,7 +10,6 @@ gem 'jquery-rails'
 gem 'bcrypt-ruby'
 gem 'less-rails-bootstrap'
 gem 'pg'
-gem 'polyglot'
 
 # Gems used only for assets and not required
 # in production environments by default.
@@ -36,6 +35,7 @@ group :test, :development do
 	gem 'shoulda-matchers'
 	gem 'ruby-debug19'
 	gem 'awesome_print'
+	gem 'capistrano'
 end
 
 
