@@ -1,12 +1,13 @@
 require 'bundler/capistrano'
-require 'config/deploy/capistrano_database_yml'
+$LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'deploy')
+require 'capistrano_database'
 #load 'deploy/assets'
 
 set :user, 'rails'
 set :domain, 'livezen.net'
 set :applicationdir, '/home/rails/webapps/livezen'
 
-set :scm, 'git'
+set :scm, :git
 set :repository,  "rails@livezen.net:repos/livezen.git"
 set :branch, 'master'
 set :git_shallow_clone, 1
