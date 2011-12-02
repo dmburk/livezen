@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  encoding: utf8
+  database: livezen_development 
+  pool: 5
+  username: livezen
+  password:
+
+test: 
+  adapter: postgresql
+  encoding: utf8
+  database: livezen_test
+  pool: 5
+  username: 
+  password:
+
+production:
+  adapter: postgresql
+  encoding: utf8
+  database: #{application}_production 
+  pool: 5
+  username: livezen
+  password: #{Capistrano::CLI.ui.ask("Enter PostgreSQL database password: ")}
