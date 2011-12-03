@@ -1,7 +1,7 @@
 require 'bundler/capistrano'
 $LOAD_PATH.unshift File.join(File.dirname(__FILE__), 'deploy')
 require 'capistrano_database'
-#load 'deploy/assets'
+load 'deploy/assets'
 
 set :user, 'rails'
 set :domain, 'livezen.net'
