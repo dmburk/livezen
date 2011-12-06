@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :task do
-    name "MyString"
+    name "Keep it secret"
     list_id 1
   end
 end
