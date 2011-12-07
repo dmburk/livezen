@@ -8,4 +8,12 @@ describe List do
 	it { should_not allow_mass_assignment_of(:id) }
 
 	it { should validate_presence_of :name }
+
+  it "should make the creator of a list the owner" do
+    user = Factory(:user)
+    list = user.lists.build( :name => "The shire" )
+    
+    list.should_receive(:make_owner)
+    list.save
+  end
 end

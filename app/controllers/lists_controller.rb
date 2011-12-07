@@ -53,14 +53,4 @@ class ListsController < ApplicationController
   def find_list
   	@list = List.find(params[:id])
   end
-
-  private
-
-  def make_owner
-    if (shares = ListShare.where(:list_id => @list.id, :user_id => @user.id))
-      ls = shares.first
-      ls.owner = true
-      ls.save!
-    end
-  end
 end

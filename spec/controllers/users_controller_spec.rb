@@ -66,13 +66,12 @@ describe UsersController do
     #--------------------------------------------------  
     describe "PUT 'update'" do
         before(:each) do
-          @user = mock_model(User, :update_attributes => true)
-          User.stub!(:find).with(1).and_return(@user)
+          User.stub!(:find).with(@current_user.id).and_return(@current_user)
         end
 
         it "should find the requested user" do
-          User.should_receive(:find).with(1).and_return(@user)
-          put :update, :id => 1
+          User.should_receive(:find).with(@current_user.id).and_return(@current_user)
+          put :update, :id => @current_user.id
         end
 
         it "should update the user object's attributes" do
