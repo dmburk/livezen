@@ -66,12 +66,13 @@ describe UsersController do
     #--------------------------------------------------  
     describe "PUT 'update'" do
         before(:each) do
-          User.stub!(:find).with(@current_user.id).and_return(@current_user)
+          @user = mock_model(User, :update_attributes => true)
+          User.stub!(:find).and_return(@user)
         end
 
         it "should find the requested user" do
-          User.should_receive(:find).with(@current_user.id).and_return(@current_user)
-          put :update, :id => @current_user.id
+          User.should_receive(:find).with(@current_user.id).and_return(@user)
+          put :update, :id => @user.id
         end
 
         it "should update the user object's attributes" do
@@ -90,14 +91,12 @@ describe UsersController do
         end
 
       context "with invalid params" do
-        before(:each) do
-          @user = mock_model(User, :update_attributes => false)
-          User.stub!(:find).with(1).and_return(@user)
-        end
-
         it "should render the [edit] template" do
-          put :update, :id => 1
-          response.should render_template('edit')
+          @user = mock_model(User, :update_attributes => false)
+          User.stub!(:find).and_return(@user)
+
+          put :update, :id => @user.id
+          response.should render_template('users/edit')
         end
       end
     end

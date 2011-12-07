@@ -2,7 +2,8 @@ require 'spec_helper'
 
 describe "Lists" do
   before(:each) do
-    current_user = Factory(:user)
+    current_user = Factory.build(:user, :id => 1)
+    controller.stub!(:current_user).and_return(current_user)
   end
 
   it "add a new list" do

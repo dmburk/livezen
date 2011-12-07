@@ -3,7 +3,7 @@
 FactoryGirl.define do
   factory :list do
     #id 1
-    name "The Fellowship"
+    name "The Ring"
   end  
 
 
