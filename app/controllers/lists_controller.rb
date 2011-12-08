@@ -1,6 +1,5 @@
 class ListsController < ApplicationController
   before_filter :find_list, :only => [ :show, :edit, :update, :destroy ]
-  after_filter :make_owner, :only =>  :create
 
   def index
     @user = User.find(current_user.id)
@@ -10,6 +9,7 @@ class ListsController < ApplicationController
   def show
     @task = Task.new
 
+    # TODO reconsider the way status is handled here
     if params[:status].nil?
       @tasks = @list.tasks.where(:status => 1)
     elsif params[:status] == "all"

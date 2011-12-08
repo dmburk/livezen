@@ -1,10 +1,13 @@
 class TasksController < ApplicationController
+  before_filter :find_task, :only => [:show, :update, :edit, :complete]
+
   def new
     @task = Task.new
   end
 
   def create
     @task = Task.new(params[:task])
+    # TODO move status to model
     @task.status = 1
 
     if @task.save
@@ -17,11 +20,9 @@ class TasksController < ApplicationController
   end
 
   def show
-    @task = Task.find(params[:id])
   end
 
   def update
-    @task = Task.find(params[:id])
     if @task.update_attributes
       flash[:success] = "Task updated"
       redirect_to @task
@@ -31,11 +32,14 @@ class TasksController < ApplicationController
   end
 
   def edit
-    @task = Task.find(params[:id])
   end
 
-  def complete
+  def find_task
     @task = Task.find(params[:id])
+  end
+  
+  # TODO move to model
+  def complete
     @task.update_attributes("status" => 3)
     redirect_to @task
   end
